@@ -12,7 +12,12 @@ describe('Airport', function() {
     it('lands the plane', function() {
       expect(airport.land(plane)).toEqual([plane]) 
     })
-
+    it('raises an error when airport is full', function(){
+       for (i=0; i < airport.capacity; i++) {
+        airport.land(plane)
+      }
+      expect(function(){airport.land(plane)}).toThrowError(Error, 'Airport is full')
+    });
   });
 
   describe('take off', function() {

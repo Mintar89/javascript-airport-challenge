@@ -6,6 +6,9 @@ class Airport {
   };
     
  land(plane) {
+    if(this.hanger.length >= this.capacity) {
+      throw new Error('Airport is full')
+    };
     this.hanger.push(plane)
     return this.hanger
   };
